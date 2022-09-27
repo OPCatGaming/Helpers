@@ -5,7 +5,7 @@ namespace Helpers
 {
     public class ArrayHelpers : IArrayHelpers
     {
-        public T[] addItemToArray<T>(T[] array, T itemsToAdd, int index = -1)
+        public T[] AddItemToArray<T>(T[] array, T itemsToAdd, int index = -1)
         {
             T[] newArray = new T[array.Length + 1];
 
@@ -36,7 +36,7 @@ namespace Helpers
             return newArray;
         }
 
-        public T[] addItemToArray<T>(T[] array, T[] itemsToAdd)
+        public T[] AddItemToArray<T>(T[] array, T[] itemsToAdd)
         {
             T[] newArray = new T[array.Length + itemsToAdd.Length];
 
@@ -48,7 +48,7 @@ namespace Helpers
             return newArray;
         }
 
-        public T[] addItemToArray<T>(T[] array, List<T> itemsToAdd)
+        public T[] AddItemToArray<T>(T[] array, List<T> itemsToAdd)
         {
             T[] newArray = new T[array.Length + itemsToAdd.Count];
 
@@ -60,7 +60,7 @@ namespace Helpers
             return newArray;
         }
 
-        public T[] removeItemFromArray<T>(T[] array, int index)
+        public T[] RemoveItemFromArray<T>(T[] array, int index)
         {
             T[] newArray = new T[array.Length - 1];
             int addTo = 0;
@@ -85,7 +85,17 @@ namespace Helpers
             return newArray;
         }
 
-        public void printArrayContents<T>(T[] array, string separateMethod = ", ")
+        public List<T> ToList<T>(T[] array)
+        {
+            List<T> newList = new List<T>();
+
+            foreach (T item in array)
+                newList.Add(item);
+
+            return newList;
+        }
+
+        public void PrintArrayContents<T>(T[] array, string separateMethod = ", ")
         {
             string finalStr = "";
             for (int i = 0; i < array.Length; i++)
